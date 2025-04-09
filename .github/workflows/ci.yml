@@ -25,8 +25,4 @@ jobs:
 
   require-label-job:
     needs: require-label
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+    if: needs.require-label.result == 'success'
