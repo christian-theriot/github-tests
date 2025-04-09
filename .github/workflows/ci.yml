@@ -22,3 +22,11 @@ jobs:
 
       - name: Run a final test
         run: echo 0
+
+  require-label-job:
+    needs: require-label
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
