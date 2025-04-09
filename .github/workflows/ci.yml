@@ -26,3 +26,6 @@ jobs:
   require-label-job:
     needs: require-label
     if: needs.require-label.result == 'success'
+
+    steps:
+      - uses: actions/checkout@v4
