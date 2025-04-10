@@ -25,7 +25,7 @@ jobs:
 
   require-label-job:
     needs: [require-label, build]
-    if: needs.build.result == 'success' && needs.require-label.result == 'success'
+    if: success('build') && success('require-label')
     runs-on: ubuntu-latest
 
     steps:
