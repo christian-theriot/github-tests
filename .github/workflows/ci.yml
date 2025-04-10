@@ -22,3 +22,12 @@ jobs:
 
       - name: Run a final test
         run: echo 0
+
+  require-label-job:
+    needs: [require-label, build]
+    if: ${{ !success('build') || !success('require-label') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo -1
